@@ -37,7 +37,7 @@ public class Reminder implements Item{
 
     public void showDetails() {
         System.out.println("Title: " + title
-        + "\n Date: " + date.toString()
+        + "\n Date: " + (date != null?date.toString():"null")
         );        
     }
 

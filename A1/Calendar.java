@@ -4,20 +4,24 @@ import entity.Item;
 
 public class Calendar{
 
-    ArrayList<Item> items;
-
-
+    final private static ArrayList<Item> items = new ArrayList<Item>();
 
 
     public ArrayList<Item> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
+    public static void addItem(Item... item){
+        for (Item i : item) {
+            items.add(i);
+        }
     }
 
-
+    public static void listItemsDetails(){
+        for (Item i : items) {
+            i.showDetails();
+        }
+    }
 
 
 
