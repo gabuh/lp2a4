@@ -1,6 +1,7 @@
 package entity;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class Reminder implements Item{
 
@@ -41,5 +42,8 @@ public class Reminder implements Item{
         );        
     }
 
+    public void complete(Scanner input){
+        System.out.println("It will be reminded on "+ date.toString());
+    }
     
 }

@@ -2,9 +2,9 @@ package entity;
 
 import java.time.LocalDateTime;
 
-import entity.builder.ReminderBuilder;
+import entity.builder.ItemBuilder;
 
-public class EventBuilder implements ReminderBuilder {
+public class EventBuilder implements ItemBuilder {
     private String title;
     private LocalDateTime endDate;
     private LocalDateTime date;
