@@ -1,3 +1,52 @@
+```mermaid
+classDiagram
+
+class Costumer{
+	- id : Long
+	- name : String
+    
+}
+
+class CostumerRepository{
+	<<Interface>>
+	
+}
+
+
+class CostumerResponseDTO{
+	<<Record>>
+	- id : Long
+	- name : String
+}
+class CostumerRequestDTO{
+	<<Record>>
+	- name : String
+}
+
+class CostumerController {
+	- costumerRepository : CostumerRepository
+	- getAllCostumer() List< CostumerResponseDTO >
+	- createCostumer(@BodyRequest CostumerRequestDTO crd) void
+	- updateCostumer(@BodyRequest CostumerRequestDTO crd,@PathVariable Long id) void
+	- deleteCostumer(@PathVariable Long id) void
+}
+
+class JpaRepository
+
+
+CostumerRepository --|> JpaRepository : extends
+CostumerResponseDTO --> CostumerController
+CostumerRequestDTO --> CostumerController
+CostumerController --> CostumerRepository
+CostumerRepository --> Costumer
+```
+
+
+
+
+
+<details>
+    <summary>Meal Route</summary>
 
 
 <h1 align='center'>Meal Route</h1>
@@ -97,6 +146,12 @@ Request:
 ```
 
 
+</details>
+
+
+<details>
+    <summary>Employee Route</summary>
+
 
 <h1 align='center'>Employee Route</h1>
 
@@ -185,3 +240,114 @@ Request:
     "name" : "Jordan Jackson"
 }
 ```
+
+
+</details>
+
+
+
+<details>
+    <summary>Costumer Route</summary>
+
+
+<h1 align='center'>Costumer Route</h1>
+
+<h2 align='center'>List All Costumers</h2>
+
+```http
+GET
+```
+
+```http
+/costumer
+```
+
+Response:
+
+```json
+[
+    {
+        "name": "Gabuh",
+        "address": {
+            "id": 1,
+            "street": "New street 13",
+            "city": "New York"
+        }
+    }
+]
+```
+
+
+
+---
+
+<h2 align='center'>Delete Costumer by Id</h2>
+
+```http
+DELETE
+```
+
+`/costumer/id`
+
+```http
+/costumer/1
+```
+
+Response: 204
+
+```http
+NO_CONTENT
+```
+
+---
+
+<h2 align='center'>Create Costumer</h2>
+
+```http
+POST
+```
+
+```http
+/costumer
+```
+
+Request:
+
+```json
+{
+    "name" : "Gabuh",
+    "address" : {
+        "street" : "Street 12",
+        "city" : "Clouds nf"
+    }
+}
+```
+
+---
+
+<h2 align='center'>Update Costumer</h2>
+
+```http
+PUT
+```
+
+`/costumer/id`
+
+```http
+/costumer/1
+```
+
+Request:
+
+```json
+{
+    "name" : "Gabuh",
+    "address" : {
+        "id" : 1,
+        "street" : "New street 13",
+        "city" : "New York"
+    }
+}
+```
+
+</details>

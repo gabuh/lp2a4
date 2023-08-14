@@ -18,4 +18,5 @@ public class Address {
     private String street;
     @Column
     private String city;
+
 }

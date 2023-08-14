@@ -4,12 +4,14 @@ import com.example.restaurant.model.Meal;
 import com.example.restaurant.dto.MealResponseDTO;
 import com.example.restaurant.repository.CostumeRepository;
 import com.example.restaurant.repository.MealRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("meal")
 public class MealController {
 
@@ -21,8 +23,8 @@ public class MealController {
     }
 
     @PostMapping
-    public void addMeal(@RequestBody MealResponseDTO data){
-        mealRepository.save(new Meal(data));
+    public void addMeal(@RequestBody MealResponseDTO mealResponseDTO){
+        mealRepository.save(new Meal(mealResponseDTO));
     }
 
     @DeleteMapping("/{id}")

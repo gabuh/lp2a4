@@ -1,6 +1,8 @@
 package com.example.restaurant.model;
 
 
+import com.example.restaurant.dto.CostumerResponseDTO;
+import com.example.restaurant.dto.MealResponseDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +19,14 @@ public class Costumer {
     private Long id;
     @Column
     private String name;
+
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addresses_id")
+    @JoinColumn(name = "address_id")
     private Address address;
 
 
-
+    public Costumer(CostumerResponseDTO costumerResponseDTO) {
+        this.address = costumerResponseDTO.address();
+        this.name = costumerResponseDTO.name();
+    }
 }

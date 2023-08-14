@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "meal")
-@Entity(name = "meal")
+@Table(name = "meals")
+@Entity(name = "meals")
 public class Meal {
     @Id
     @GeneratedValue()
