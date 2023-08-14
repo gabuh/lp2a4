@@ -1,6 +1,6 @@
-# LP1A3 
+# LP2A4 
 
-O repositório `LP1A3`  foi criado para fazer parte da disciplina de `Linguagem de Programação I` .
+O repositório `LP2A4`  foi criado para fazer parte da disciplina de `Linguagem de Programação II` .
 
 Leia em outros idiomas: [English](./README.md), [Português](./README.pt.md)
 
