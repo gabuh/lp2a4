@@ -24,7 +24,7 @@ class CustomerRequestDTO{
 }
 
 class CustomerController {
-	- CustomerRepository : CustomerRepository
+	- customerRepository : CustomerRepository
 	- getAllCustomer() List< CustomerResponseDTO >
 	- createCustomer(@BodyRequest CustomerRequestDTO crd) void
 	- updateCustomer(@BodyRequest CustomerRequestDTO crd,@PathVariable Long id) void
@@ -259,7 +259,7 @@ GET
 ```
 
 ```http
-/Customer
+/customer
 ```
 
 Response:
@@ -287,10 +287,10 @@ Response:
 DELETE
 ```
 
-`/Customer/id`
+`/customer/id`
 
 ```http
-/Customer/1
+/customer/1
 ```
 
 Response: 204
@@ -308,7 +308,7 @@ POST
 ```
 
 ```http
-/Customer
+/customer
 ```
 
 Request:
@@ -331,10 +331,10 @@ Request:
 PUT
 ```
 
-`/Customer/id`
+`/customer/id`
 
 ```http
-/Customer/1
+/customer/1
 ```
 
 Request:
