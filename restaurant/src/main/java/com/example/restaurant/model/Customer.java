@@ -1,8 +1,7 @@
 package com.example.restaurant.model;
 
 
-import com.example.restaurant.dto.CostumerResponseDTO;
-import com.example.restaurant.dto.MealResponseDTO;
+import com.example.restaurant.dto.CostomerResponseDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "costumers")
-@Table(name = "costumers")
-public class Costumer {
+@Entity(name = "customers")
+@Table(name = "customers")
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,8 +24,8 @@ public class Costumer {
     private Address address;
 
 
-    public Costumer(CostumerResponseDTO costumerResponseDTO) {
-        this.address = costumerResponseDTO.address();
-        this.name = costumerResponseDTO.name();
+    public Customer(CostomerResponseDTO costomerResponseDTO) {
+        this.address = costomerResponseDTO.address();
+        this.name = costomerResponseDTO.name();
     }
 }

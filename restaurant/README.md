@@ -1,44 +1,44 @@
 ```mermaid
 classDiagram
 
-class Costumer{
+class Customer{
 	- id : Long
 	- name : String
     
 }
 
-class CostumerRepository{
+class CustomerRepository{
 	<<Interface>>
 	
 }
 
 
-class CostumerResponseDTO{
+class CustomerResponseDTO{
 	<<Record>>
 	- id : Long
 	- name : String
 }
-class CostumerRequestDTO{
+class CustomerRequestDTO{
 	<<Record>>
 	- name : String
 }
 
-class CostumerController {
-	- costumerRepository : CostumerRepository
-	- getAllCostumer() List< CostumerResponseDTO >
-	- createCostumer(@BodyRequest CostumerRequestDTO crd) void
-	- updateCostumer(@BodyRequest CostumerRequestDTO crd,@PathVariable Long id) void
-	- deleteCostumer(@PathVariable Long id) void
+class CustomerController {
+	- CustomerRepository : CustomerRepository
+	- getAllCustomer() List< CustomerResponseDTO >
+	- createCustomer(@BodyRequest CustomerRequestDTO crd) void
+	- updateCustomer(@BodyRequest CustomerRequestDTO crd,@PathVariable Long id) void
+	- deleteCustomer(@PathVariable Long id) void
 }
 
 class JpaRepository
 
 
-CostumerRepository --|> JpaRepository : extends
-CostumerResponseDTO --> CostumerController
-CostumerRequestDTO --> CostumerController
-CostumerController --> CostumerRepository
-CostumerRepository --> Costumer
+CustomerRepository --|> JpaRepository : extends
+CustomerResponseDTO --> CustomerController
+CustomerRequestDTO --> CustomerController
+CustomerController --> CustomerRepository
+CustomerRepository --> Customer
 ```
 
 
@@ -247,19 +247,19 @@ Request:
 
 
 <details>
-    <summary>Costumer Route</summary>
+    <summary>Customer Route</summary>
 
 
-<h1 align='center'>Costumer Route</h1>
+<h1 align='center'>Customer Route</h1>
 
-<h2 align='center'>List All Costumers</h2>
+<h2 align='center'>List All Customers</h2>
 
 ```http
 GET
 ```
 
 ```http
-/costumer
+/Customer
 ```
 
 Response:
@@ -281,16 +281,16 @@ Response:
 
 ---
 
-<h2 align='center'>Delete Costumer by Id</h2>
+<h2 align='center'>Delete Customer by Id</h2>
 
 ```http
 DELETE
 ```
 
-`/costumer/id`
+`/Customer/id`
 
 ```http
-/costumer/1
+/Customer/1
 ```
 
 Response: 204
@@ -301,14 +301,14 @@ NO_CONTENT
 
 ---
 
-<h2 align='center'>Create Costumer</h2>
+<h2 align='center'>Create Customer</h2>
 
 ```http
 POST
 ```
 
 ```http
-/costumer
+/Customer
 ```
 
 Request:
@@ -325,16 +325,16 @@ Request:
 
 ---
 
-<h2 align='center'>Update Costumer</h2>
+<h2 align='center'>Update Customer</h2>
 
 ```http
 PUT
 ```
 
-`/costumer/id`
+`/Customer/id`
 
 ```http
-/costumer/1
+/Customer/1
 ```
 
 Request:
