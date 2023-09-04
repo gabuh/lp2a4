@@ -1,0 +1,308 @@
+:root{
+  --main-color: #b9473f;
+  --main-background-color:rgb(34, 34,34);
+  --font-color-buttons: black;
+  --font-color-texts:white;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: var(--main-background-color);
+    color: var(--font-color-texts);
+    font-family: poppinsregular;
+    padding: 15px;
+}
+ul{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  align-content: space-between;
+}
+
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--main-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--main-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+#title{
+    text-align: center;
+}
+
+li{
+    display: inline;
+}
+
+h1{
+    font-weight: 200;
+    line-height:normal;
+}
+
+h2{
+  font-size: 50px;
+  line-height: 50px;
+  font-family: poppinsmedium;
+  padding: 15px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+a{
+  color: var(--font-color-texts);
+  padding: 15px;
+  text-decoration: none;
+}
+
+a:hover{
+  color: var(--main-color);
+  transition: 0.3s all;
+}
+
+span{
+  color: var(--main-color);
+  line-height:normal;
+}
+p{
+  padding: 15px;
+  line-height: 20px;
+  max-width: 500px;
+  font-family: poppinslight;
+
+}
+
+img{
+  width: 500px;
+}
+
+#inscreva-se-btn{
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+#inscreva-se-btn:hover{
+  background-color: var(--main-color);
+  color: var(--font-color-buttons);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+input{
+  margin-top: 20px;
+  height: 40px;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+}
+
+form [type="submit"]{
+  height: 50px;
+  width: 50%;
+  background-color: var(--main-color);
+  color: var(--font-color-buttons);
+  font-weight: bold;
+}
+
+form [type="submit"]:hover{
+  cursor: pointer;
+}
+
+  /* MEDIA RESPONSIBLE */
+  @media screen and (max-width: 913px){
+    ul{
+      display: contents;
+    }
+    .switch{
+      margin-top: 2%;
+    }
+  }
+
+
+
+  @media screen and (max-width: 760px){
+    header{
+      flex-direction: column;
+
+    }
+    main{
+      flex-direction: column;
+    }
+    h2{
+      font-size: 38px;
+    }
+
+    form{
+      margin: auto;
+      width: 80%;
+    }
+
+    img{
+      margin-top: 100px;
+      width: 100%;
+    }
+
+    #send-btn{
+      align-self: center;
+      width: 100%;
+    }
+
+    h2 span{
+      line-height:normal;
+      
+    }
+
+    ul{
+      display: contents;
+    }
+  }
+
+
+
+
+
+
+
+
+/*fonteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee*/
+
+
+
+@font-face {
+    font-family: 'poppinsblack';
+    src: url('./components/fonts/poppins-black-webfont.woff2') format('woff2'),
+         url('./components/fonts/poppins-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'poppinsbold';
+    src: url('./components/fonts/poppins-bold-webfont.woff2') format('woff2'),
+         url('./components/fonts/poppins-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  
+  @font-face {
+    font-family: 'poppinslight';
+    src: url('./components/fonts/poppins-light-webfont.woff2') format('woff2'),
+         url('./components/fonts/poppins-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  
+  @font-face {
+    font-family: 'poppinsmedium';
+    src: url('./components/fonts/poppins-medium-webfont.woff2') format('woff2'),
+         url('./components/fonts/poppins-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  @font-face {
+    font-family: 'poppinsregular';
+    src: url('./components/fonts/poppins-regular-webfont.woff2') format('woff2'),
+         url('./components/fonts/poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  @font-face {
+    font-family: 'poppinssemibold';
+    src: url('./components/fonts/poppins-semibold-webfont.woff2') format('woff2'),
+         url('./components/fonts/poppins-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+
+
