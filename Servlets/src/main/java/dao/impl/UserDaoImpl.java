@@ -7,7 +7,7 @@ import model.User;
 
 import java.util.ArrayList;
 
-public class UerDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao {
     @Override
     public void create(User user) {
         EntityTransaction transaction = JpaFactoryConnection.getEntityManager().getTransaction();

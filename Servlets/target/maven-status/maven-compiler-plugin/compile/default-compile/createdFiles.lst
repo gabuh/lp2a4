@@ -1,0 +1,7 @@
+dao\impl\UserDaoImpl.class
+servlets\LoginServlet.class
+servlets\RegisterUserServlet.class
+dao\UserDao.class
+servlets\HomeServlet.class
+model\User.class
+config\JpaFactoryConnection.class

@@ -5,6 +5,7 @@
   --font-color-texts:white;
 }
 
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -186,6 +187,13 @@ form [type="submit"]:hover{
   cursor: pointer;
 }
 
+.errorInput{
+  border: 2px solid #f10838 !important;
+}
+
+
+
+
   /* MEDIA RESPONSIBLE */
   @media screen and (max-width: 913px){
     ul{
@@ -234,10 +242,6 @@ form [type="submit"]:hover{
       display: contents;
     }
   }
-
-
-
-
 
 
 

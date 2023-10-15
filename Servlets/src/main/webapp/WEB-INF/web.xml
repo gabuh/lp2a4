@@ -5,11 +5,17 @@
          version="5.0">
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>servlets.ExUm</servlet-name>
-    <servlet-class>servlets.ExUm</servlet-class>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>servlets.HomeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>servlets.ExUm</servlet-name>
-    <url-pattern>/exum</url-pattern>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/home</url-pattern>
   </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+
 </web-app>

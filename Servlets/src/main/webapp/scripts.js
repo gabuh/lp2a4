@@ -13,9 +13,8 @@ document.getElementById("theme-switch").addEventListener("click",function(){
         document.documentElement.style.setProperty('--font-color-buttons','#000000');
         document.documentElement.style.setProperty('--font-color-texts','#ffffff');
         boolTheme = false;
-    } 
-    console.log(boolTheme)
-});
+    }
 
+});
 
 

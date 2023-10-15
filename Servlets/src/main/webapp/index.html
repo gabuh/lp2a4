@@ -28,7 +28,7 @@
         <a onclick="alert('There is no backend')">
             <li>Contato</li>
         </a>
-        <a onclick="alert('There is no backend')" id="inscreva-se-btn">
+        <a href="registerUser" id="inscreva-se-btn">
             <li>Já tem uma conta?</li>
         </a>
         <label class="switch"> <input id="theme-switch" type="checkbox"> <span class="slider round"></span> </label>
@@ -43,7 +43,7 @@
             mundo do Desenvolvimento Web. Mantenha-se atualizado sobre os nossos produtos e serviços, além de receber
             ofertas exclusivas para nossos assinantes. Não perca tempo, inscreva-se agora mesmo e faça parte da nossa
             comunidade de informação privilegiada!</p>
-        <form action="/exum">
+        <form action="/login" method="post">
             <input type="text" placeholder="Nome" name="name">
             <input type="email" placeholder="E-Mail" name="email">
             <input type="submit" value="Enviar >" id="send-btn">

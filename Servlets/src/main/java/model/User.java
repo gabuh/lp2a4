@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "person")
-public class Person {
+@Table(name = "user")
+public class User {
 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,13 @@ public class Person {
     private String name;
     @Column
     private String email;
+    @Column
+    private String password;
 
 
-    public Person(String name, String email) {
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
+        this.password = password;
     }
 }
