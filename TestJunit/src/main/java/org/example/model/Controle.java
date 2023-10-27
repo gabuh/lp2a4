@@ -12,16 +12,18 @@ public class Controle {
 
 
     public void controlaEstoque(Estoque estoque){
+        if (estoque.getProdutos().isEmpty())
+            throw new IllegalArgumentException("Broooooooo");
         for (Produto produto :
             estoque.getProdutos()) {
-            if(produto.getQuantidade()  <= produto.getEstoqueMinimo() ){
-                this.produtosComEstoqueInsuficiente.add(produto);
-            } else if (produto.getQuantidade() > produto.getEstoqueMaximo() ) {
-                this.produtosComEstoqueExcedente.add(produto);
+            if(produto.getQuantidade() == 0){
+                this.produtosComEstoqueZerado.add(produto);
             } else if (produto.getQuantidade() == produto.getEstoqueMaximo() ) {
                 this.produtosComEstoqueAdequado.add(produto);
-            } else if (produto.getQuantidade() == 0) {
-                this.produtosComEstoqueZerado.add(produto);
+            } else if (produto.getQuantidade() > produto.getEstoqueMaximo() ) {
+                this.produtosComEstoqueExcedente.add(produto);
+            } else if (produto.getQuantidade()  <= produto.getEstoqueMinimo()) {
+                this.produtosComEstoqueInsuficiente.add(produto);
             }
         }
     }

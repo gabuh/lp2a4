@@ -12,6 +12,9 @@ public class Produto {
     public Produto(String nome, double quantidade, double estoqueMinimo, double estoqueMaximo) {
         this.nome = nome;
         this.quantidade = quantidade;
+        if (estoqueMaximo > 100 || estoqueMinimo < 5){
+            throw new IllegalArgumentException("Quantidade minima de pelo ao menos 5 itens. Quantidade maxima 100");
+        }
         this.estoqueMinimo = estoqueMinimo;
         this.estoqueMaximo = estoqueMaximo;
     }
@@ -33,19 +36,26 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public void setEstoqueMinimo(double estoqueMinimo) {
+        this.estoqueMinimo = estoqueMinimo;
+        if (estoqueMinimo < 5){
+            throw new IllegalArgumentException("Quantidade maxima 100");
+        }
+    }
+
+    public void setEstoqueMaximo(double estoqueMaximo) {
+        if (estoqueMaximo > 100){
+            throw new IllegalArgumentException("Quantidade minima de pelo ao menos 5 itens.");
+        }
+        this.estoqueMaximo = estoqueMaximo;
+    }
+
     public double getEstoqueMinimo() {
         return estoqueMinimo;
     }
 
-    public void setEstoqueMinimo(double estoqueMinimo) {
-        this.estoqueMinimo = estoqueMinimo;
-    }
 
     public double getEstoqueMaximo() {
         return estoqueMaximo;
-    }
-
-    public void setEstoqueMaximo(double estoqueMaximo) {
-        this.estoqueMaximo = estoqueMaximo;
     }
 }

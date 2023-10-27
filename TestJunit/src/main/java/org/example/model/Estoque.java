@@ -9,13 +9,23 @@ public class Estoque {
     private List<Produto> produtos;
 
 
+    public Estoque(String loja, List<Produto> produtos) {
+        this.loja = loja;
+        this.produtos = produtos;
+    }
+
     public Estoque(String loja) {
         this.loja = loja;
         produtos = new ArrayList<Produto>();
     }
 
+
     public void armazena(Produto produto){
-        this.produtos.add(produto);
+        if(exist(produto)){
+            System.out.println("Produto Já existente.");
+        }else{
+            this.produtos.add(produto);
+        }
     }
 
 
@@ -26,4 +36,16 @@ public class Estoque {
     public List<Produto> getProdutos() {
         return produtos;
     }
+
+
+    public boolean exist(Produto p){
+        for (Produto pList:
+             this.produtos) {
+            if (p.getNome().equals(p.getNome()))
+                return true;
+        }
+        return false;
+    }
+
+
 }
