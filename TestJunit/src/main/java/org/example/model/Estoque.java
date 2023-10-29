@@ -41,7 +41,7 @@ public class Estoque {
     public boolean exist(Produto p){
         for (Produto pList:
              this.produtos) {
-            if (p.getNome().equals(p.getNome()))
+            if (pList.getNome().equals(p.getNome()))
                 return true;
         }
         return false;

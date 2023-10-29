@@ -10,7 +10,7 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EstoqueTest {
-    private Produto produto1, produto2;
+    private Produto produto1, produto2, produtoDiferente;
 
 
     @Before
@@ -25,6 +25,11 @@ public class EstoqueTest {
                 .setEstoqueMinimo(5)
                 .setEstoqueMaximo(10)
                 .create();
+        this.produtoDiferente = new ProdutoBuilder()
+                .setNome("Feijão")
+                .setEstoqueMinimo(6)
+                .setEstoqueMaximo(15)
+                .create();
     }
 
     @Test
@@ -33,9 +38,11 @@ public class EstoqueTest {
                     .setLoja("Lojao Ninja")
                     .armazena(produto1)
                     .armazena(produto2)
+                    .armazena(produtoDiferente)
                     .create();
 
-            assertEquals(1, estoque.getProdutos().size());
+
+            assertEquals(2, estoque.getProdutos().size());
 
     }
 

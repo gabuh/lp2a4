@@ -6,24 +6,23 @@ import org.example.model.builder.ProdutoBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ControleTest {
-    private Produto produto1, produto2;
+    private Produto produto, produtoDiferente;
 
     @Before
     public void instanciarProdutos(){
-        this.produto1 = new ProdutoBuilder()
+        this.produto = new ProdutoBuilder()
                 .setNome("Arroz")
                 .setEstoqueMinimo(5)
                 .setEstoqueMaximo(10)
                 .create();
-        this.produto2 = new ProdutoBuilder()
-                .setNome("Arroz")
-                .setEstoqueMinimo(5)
-                .setEstoqueMaximo(10)
+        this.produtoDiferente = new ProdutoBuilder()
+                .setNome("Feijão")
+                .setEstoqueMinimo(6)
+                .setEstoqueMaximo(15)
                 .create();
     }
 
@@ -31,10 +30,10 @@ public class ControleTest {
     @Test
     public void deveRetornarProdutosComEstoqueInsuficiente(){
         Controle controle = new Controle();
-        this.produto1.setQuantidade(2); //Estoque minimo é 5 e máximo 10
+        this.produto.setQuantidade(2); //Estoque minimo é 5 e máximo 10
         controle.controlaEstoque(new EstoqueBuilder()
                 .setLoja("Lojão do bras")
-                .armazena(produto1)
+                .armazena(produto)
                 .create()
         );
         assertEquals(1,controle.produtosComEstoqueInsuficiente.size());
@@ -43,10 +42,10 @@ public class ControleTest {
     @Test
     public void deveRetornarProdutosComEstoqueExcedente(){
         Controle controle = new Controle();
-        this.produto1.setQuantidade(15); //Estoque minimo é 5 e máximo 10
+        this.produto.setQuantidade(15); //Estoque minimo é 5 e máximo 10
         controle.controlaEstoque(new EstoqueBuilder()
                 .setLoja("Lojão do bras")
-                .armazena(produto1)
+                .armazena(produto)
                 .create()
         );
         assertEquals(1,controle.produtosComEstoqueExcedente.size());
@@ -58,36 +57,54 @@ public class ControleTest {
 //        this.produto1.setQuantidade(15); //Estoque minimo é 5 e máximo 10
         controle.controlaEstoque(new EstoqueBuilder()
                 .setLoja("Lojão do bras")
-                .armazena(produto1)
+                .armazena(produto)
                 .create()
         );
-        System.out.println(produto1.getQuantidade()); // quantidade = 0.0
+        System.out.println(produto.getQuantidade()); // quantidade = 0.0
         assertEquals(1,controle.produtosComEstoqueZerado.size());
     }
 
     @Test
     public void deveRetornarProdutosComEstoqueAdequado() {
         Controle controle = new Controle();
-        this.produto1.setQuantidade(10); //Estoque minimo é 5 e máximo 10
+        this.produto.setQuantidade(10); //Estoque minimo é 5 e máximo 10
         controle.controlaEstoque(new EstoqueBuilder()
                 .setLoja("Lojão do bras")
-                .armazena(produto1)
+                .armazena(produto)
                 .create()
         );
         assertEquals(1,controle.produtosComEstoqueAdequado.size());
     }
 
 
-    @Test
-    public void deveRetornarTodasListasVaziasParaEstoqueSemProdutos(){
-
-    }
+//    @Test
+//    public void deveRetornarTodasListasVaziasParaEstoqueSemProdutos(){
+//        Controle controle = new Controle();
+//        controle.controlaEstoque(new EstoqueBuilder()
+//                .setLoja("Lojao Vazio")
+//                .create()
+//        );
+//
+//        assertTrue(
+//                controle.getProdutosComEstoqueZerado().isEmpty() &&
+//                        controle.getProdutosComEstoqueAdequado().isEmpty() &&
+//                        controle.getProdutosComEstoqueExcedente().isEmpty() &&
+//                        controle.getProdutosComEstoqueInsuficiente().isEmpty()
+//        );
+//    }
 
     @Test
     public void deveRetornarListaVaziaParaEstoqueQueNaoContemProdutosComEstoqueZerado(){
-        Estoque estoque = new Estoque("Lojao");
         Controle controle = new Controle();
-        assertEquals(true, estoque.getProdutos().isEmpty());
+        produto.setQuantidade(5);
+        produtoDiferente.setQuantidade(5);
+        controle.controlaEstoque(new EstoqueBuilder()
+                .setLoja("Lojão")
+                .armazena(produto)
+                .armazena(produtoDiferente)
+                .create()
+        );
+        assertTrue(controle.getProdutosComEstoqueZerado().isEmpty());
 
     }
 
@@ -97,7 +114,6 @@ public class ControleTest {
     public void naoDeveControlarEstoquesSemNenhumProduto(){
         Estoque estoque = new Estoque("Lojão Vazio");
         Controle controle = new Controle();
-
         controle.controlaEstoque(estoque);
     }
 
