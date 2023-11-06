@@ -3,8 +3,11 @@ package config;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.PersistenceContext;
 
 public class JpaFactoryConnection {
+
+    @PersistenceContext
     private static EntityManager entityManager;
 
     public static void connect(){

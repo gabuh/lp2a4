@@ -1,30 +1,32 @@
 package servlets;
 
 import config.JpaFactoryConnection;
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.User;
+
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 public class HomeServlet extends HttpServlet {
-    static {
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         JpaFactoryConnection.connect();
     }
 
-//    UserDao userDao = new UserDaoImpl();
 
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-
+        if (req.getSession().getAttribute("username") != null){
+            req.getSession().setAttribute("username", null);
+        }
 
 
         req.getRequestDispatcher("/index.html").forward(req,resp);
